@@ -36,7 +36,7 @@ This project allows you to create a complete Laravel project with Docker. The pr
      PHPIMAGE=<php-image-tag>
      LARAVEL_VERSION=<laravel-version>
      ```
-   Example for Laravel 8:
+   Example for Laravel 5:
      ```
      PHPIMAGE=php:5.6-fpm-alpine
      LARAVEL_VERSION=5.4
