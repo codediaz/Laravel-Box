@@ -4,11 +4,15 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        PHPIMAGE: ${PHPIMAGE}
     volumes:
-      - .:/app
+      - .:/www
+    environment:
+      - LARAVEL_VERSION=${LARAVEL_VERSION}  
     ports:
       - "8000:8000"
     command: >
-      sh -c "composer create-project --prefer-dist laravel/laravel project ^8.0 &&
-            cd project &&
-            php artisan serve --host=0.0.0.0 --port=8000"
+      sh -c "composer create-project --prefer-dist --no-plugins laravel/laravel project ${LARAVEL_VERSION} &&
+        cd project &&
+        php artisan serve --host=0.0.0.0 --port=8000"
